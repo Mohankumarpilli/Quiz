@@ -35,7 +35,7 @@ function Home({ setUserDetails }) {
                 <input id="email" name="email" type="text" className="bg-white rounded-r-3xl h-14 w-xs text-2xl pl-1 outline-0" onChange={(e) => setUserEmail(e.target.value)} onKeyDown={handleKeyDown}/>
             </div>
             <div className="flex justify-center m-4">
-                <button className="bg-black pl-5 pr-5 pb-3 pt-2 font-bold rounded-3xl text-white text-2xl">Submit</button>
+                <button className="bg-black pl-5 pr-5 pb-3 pt-2 font-bold rounded-3xl text-white text-2xl">Start Test</button>
             </div>
         </form>
     </div>

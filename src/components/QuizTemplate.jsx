@@ -1,5 +1,12 @@
-function QuizTemplate({ question, options, handleNext, handlePrev, handleUserAnswer, userAnswer}) {
+import { useNavigate } from "react-router-dom";
+
+function QuizTemplate({ index, question, options, handleNext, handlePrev, handleUserAnswer, userAnswer}) {
     const check = userAnswer[question];
+    const nav = useNavigate();
+    const handleSubmit = () => {
+        nav("/result");
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full border border-gray-100 transform hover:scale-105 transition-transform duration-300">
@@ -37,9 +44,10 @@ function QuizTemplate({ question, options, handleNext, handlePrev, handleUserAns
                     })}
                 </div>
 
-                <div className="flex justify-between mt-8 text-center">
-                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200" onClick={handlePrev}>Back</button>
-                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200" onClick={handleNext}>Next</button>
+                <div className={index !=0 ? "flex justify-between mt-8 text-center" : "flex justify-end mt-8 text-center"}>
+                {index != 0 ? <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200" onClick={handlePrev}>Back</button> : ""}
+                {index != 4 ?<button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200" onClick={handleNext}>Next</button> : ""}
+                {index == 4 ?<button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200" onClick={handleSubmit}>Submit</button> : ""}
             </div>
             </div>
         </div>

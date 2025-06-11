@@ -16,7 +16,7 @@ function Quiz({data, handleUserAnswer, userAnswer}) {
     return <div>
         <div>{data.map((element,id) => {
             if(id==index){
-                return <QuizTemplate handleUserAnswer={handleUserAnswer} key={id} handleNext={handleNext} handlePrev={handlePrev} question={Object.keys(element)} options={element[Object.keys(element)]} userAnswer={userAnswer}/>
+                return <QuizTemplate index={id} handleUserAnswer={handleUserAnswer} key={id} handleNext={handleNext} handlePrev={handlePrev} question={Object.keys(element)} options={element[Object.keys(element)]} userAnswer={userAnswer}/>
             }
         })}</div>
     </div>
